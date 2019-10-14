@@ -1,0 +1,1 @@
+package com.github.gs618.easy.model;
