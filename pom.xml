@@ -13,6 +13,8 @@
         <module>easy-dependencies</module>
         <module>easy-starter-exception</module>
         <module>easy-starter-autoboxing</module>
+        <module>easy-starter-swagger</module>
+        <module>easy-starter-dependencies</module>
     </modules>
 
     <dependencies>
@@ -42,6 +44,11 @@
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-model</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.gs618</groupId>
+                <artifactId>easy-starter-dependencies</artifactId>
                 <version>0.0.1</version>
             </dependency>
         </dependencies>

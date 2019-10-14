@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import java.lang.annotation.*;
 
 
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited

@@ -1,4 +1,4 @@
-package com.github.gs618.easy.starter.exception;
+package com.github.gs618.easy.starter.swagger;
 
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 
@@ -9,6 +9,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@ImportAutoConfiguration(CommonExceptionAdviceAutoConfigure.class)
-public @interface EnableCommonExceptionAdvice {
+@ImportAutoConfiguration(SwaggerAutoConfigure.class)
+public @interface EnableSwagger {
 }
