@@ -5,14 +5,12 @@ import com.google.gson.GsonBuilder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
 /**
  * @author s.c.gao
  */
 @Data
 @Accessors(chain = true)
-public class WebProtocol<T extends Serializable> {
+public class WebProtocol<T> {
 
     private static final Gson GSON = (new GsonBuilder()).serializeNulls().create();
 
@@ -25,7 +23,7 @@ public class WebProtocol<T extends Serializable> {
     private WebProtocol() {
     }
 
-    public static <T extends Serializable> WebProtocol<T> newInstance() {
+    public static <T> WebProtocol<T> newInstance() {
         return new WebProtocol<>();
     }
 
