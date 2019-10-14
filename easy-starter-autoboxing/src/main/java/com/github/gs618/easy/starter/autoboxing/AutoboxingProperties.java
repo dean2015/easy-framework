@@ -4,7 +4,6 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,16 +15,18 @@ public class AutoboxingProperties {
 
     public static final String PREFIX = "easy.autoboxing.ignore";
 
-    private List<String> defaultPatterns = Arrays.asList(
-            "/swagger-resources/**",
-            "/swagger-ui.html",
-            "/v2/api-docs",
-            "/webjars/**",
-            "/",
-            "csrf"
-    );
-
+    /**
+     * "/swagger-resources/**",
+     * "/swagger-ui.html",
+     * "/v2/api-docs",
+     * "/webjars/**",
+     * "/",
+     * "csrf"
+     */
     private List<String> patterns = new ArrayList<>(5);
 
+    /**
+     * USING_FEIGN
+     */
     private List<String> headers = new ArrayList<>(5);
 }

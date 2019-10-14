@@ -27,7 +27,6 @@ public class NullHandleFilter extends OncePerRequestFilter {
         String requestPath = request.getRequestURI();
         return MatcherUtils.ignoreHeader(autoboxingProperties.getHeaders(), request)
                 || super.shouldNotFilter(request)
-                || MatcherUtils.isUrlIncluded(autoboxingProperties.getDefaultPatterns(), requestPath)
                 || MatcherUtils.isUrlIncluded(autoboxingProperties.getPatterns(), requestPath);
     }
 

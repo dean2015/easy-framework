@@ -42,10 +42,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
             return body;
         }
         String requestPath = request.getURI().getPath();
-        if (MatcherUtils
-                .isUrlIncluded(autoboxingProperties.getDefaultPatterns(), requestPath) ||
-                MatcherUtils
-                        .isUrlIncluded(autoboxingProperties.getPatterns(), requestPath)) {
+        if (MatcherUtils.isUrlIncluded(autoboxingProperties.getPatterns(), requestPath)) {
             return body;
         }
         if (body instanceof WebProtocol) {
