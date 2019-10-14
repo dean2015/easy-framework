@@ -9,6 +9,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@ImportAutoConfiguration(CommonExceptionAdviceAutoConfiguration.class)
+@ImportAutoConfiguration(CommonExceptionAdviceAutoConfigure.class)
 public @interface EnableCommonExceptionAdvice {
 }
