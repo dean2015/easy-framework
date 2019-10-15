@@ -26,6 +26,7 @@ public class CommonExceptionAdvice implements Ordered {
         log.error("未处理的业务异常 [" + e.getMessage() + "]", e);
         return WebProtocol.<I18nData>newInstance()
                 .setCode(e.getCode())
+                .setSuccess(false)
                 .setData(I18nData.newInstance()
                         .setMessage(e.getMessage())
                         .setParameters(e.getParameters()));
@@ -40,6 +41,7 @@ public class CommonExceptionAdvice implements Ordered {
         log.error("未处理的非业务异常 [" + e.getMessage() + "]", e);
         return WebProtocol.<I18nData>newInstance()
                 .setCode(e.getCode())
+                .setSuccess(false)
                 .setData(I18nData.newInstance()
                         .setMessage(e.getMessage())
                         .setParameters(e.getParameters()));
@@ -54,6 +56,7 @@ public class CommonExceptionAdvice implements Ordered {
         log.error("服务器未知异常", e);
         return WebProtocol.<I18nData>newInstance()
                 .setCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .setSuccess(false)
                 .setData(I18nData.newInstance()
                         .setMessage(e.getMessage()));
     }
