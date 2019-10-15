@@ -7,7 +7,7 @@
     <groupId>com.github.gs618</groupId>
     <artifactId>easy-framework</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>easy-model</module>
         <module>easy-dependencies</module>
@@ -37,19 +37,19 @@
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-dependencies</artifactId>
-                <version>0.0.1</version>
+                <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-model</artifactId>
-                <version>0.0.1</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-starter-dependencies</artifactId>
-                <version>0.0.1</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
