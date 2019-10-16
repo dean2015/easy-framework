@@ -3,7 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
     <groupId>com.github.gs618</groupId>
     <artifactId>easy-framework</artifactId>
     <packaging>pom</packaging>
@@ -67,4 +71,37 @@
             </plugin>
         </plugins>
     </build>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE 3.0</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/gs618/easy-framework.git</connection>
+        <developerConnection>scm:git:https://github.com/gs618/easy-framework.git</developerConnection>
+        <url>https://github.com/gs618/easy-framework.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>s.c.gao</name>
+            <email>gaosongdalian@sina.com</email>
+            <organization>None</organization>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>smsf release respoitories</name>
+            <url>http://10.237.161.211:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>smsf snapshots respoitories</name>
+            <url>http://10.237.161.211:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
