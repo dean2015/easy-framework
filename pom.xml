@@ -9,7 +9,7 @@
     <groupId>com.github.gs618</groupId>
     <artifactId>easy-framework</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <modules>
         <module>easy-model</module>
         <module>easy-dependencies</module>
@@ -39,19 +39,19 @@
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-dependencies</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-model</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.github.gs618</groupId>
                 <artifactId>easy-starter-dependencies</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -92,7 +92,7 @@
         <connection>scm:git:git@github.com:gs618/easy-framework.git</connection>
         <developerConnection>scm:git:git@github.com:gs618/easy-framework.git</developerConnection>
         <url>https://github.com/gs618/easy-framework</url>
-      <tag>v1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
     <developers>
         <developer>
