@@ -3,23 +3,37 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-<!--    <parent>-->
-<!--        <groupId>org.sonatype.oss</groupId>-->
-<!--        <artifactId>oss-parent</artifactId>-->
-<!--        <version>7</version>-->
-<!--    </parent>-->
     <groupId>com.github.gs618</groupId>
     <artifactId>easy-framework</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>easy-model</module>
-        <module>easy-dependencies</module>
         <module>easy-starter-exception</module>
         <module>easy-starter-autoboxing</module>
         <module>easy-starter-swagger</module>
         <module>easy-starter-dependencies</module>
     </modules>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE 3.0</name>
+            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:gs618/easy-framework.git</connection>
+        <developerConnection>scm:git:git@github.com:gs618/easy-framework.git</developerConnection>
+        <url>https://github.com/gs618/easy-framework</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>Song Gao</name>
+            <email>gaosongdalian@sina.com</email>
+            <organization>None</organization>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -83,36 +97,16 @@
         </plugins>
     </build>
 
-    <licenses>
-        <license>
-            <name>GNU GENERAL PUBLIC LICENSE 3.0</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <scm>
-        <connection>scm:git:git@github.com:gs618/easy-framework.git</connection>
-        <developerConnection>scm:git:git@github.com:gs618/easy-framework.git</developerConnection>
-        <url>https://github.com/gs618/easy-framework</url>
-    </scm>
-    <developers>
-        <developer>
-            <name>Song Gao</name>
-            <email>gaosongdalian@sina.com</email>
-            <organization>None</organization>
-        </developer>
-    </developers>
-
     <distributionManagement>
         <repository>
             <id>maven-releases</id>
-            <name>smsf release respoitories</name>
-            <url>http://10.237.161.211:8081/repository/maven-releases/</url>
+            <name>release respoitories</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <name>smsf snapshots respoitories</name>
-            <url>http://10.237.161.211:8081/repository/maven-snapshots/</url>
+            <name>snapshots respoitories</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
