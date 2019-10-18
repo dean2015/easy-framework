@@ -91,9 +91,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/gs618/easy-framework.git</connection>
-        <developerConnection>scm:git:https://github.com/gs618/easy-framework.git</developerConnection>
-        <url>https://github.com/gs618/easy-framework.git</url>
+        <connection>scm:git:git@github.com:gs618/easy-framework.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:gs618/easy-framework.git</developerConnection>
+        <url>https://github.com/gs618/easy-framework</url>
     </scm>
     <developers>
         <developer>
