@@ -13,6 +13,7 @@
         <module>easy-starter-autoboxing</module>
         <module>easy-starter-swagger</module>
         <module>easy-starter-dependencies</module>
+        <module>easy-starter-datasource</module>
     </modules>
 
     <licenses>
@@ -97,7 +98,7 @@
         </plugins>
     </build>
 
-    <distributionManagement>
+   <!-- <distributionManagement>
         <repository>
             <id>sonatype-nexus-snapshots</id>
             <name>release respoitories</name>
@@ -107,6 +108,18 @@
             <id>sonatype-nexus-staging</id>
             <name>snapshots respoitories</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>smsf release respoitories</name>
+            <url>http://10.237.161.211:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>smsf snapshots respoitories</name>
+            <url>http://10.237.161.211:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
