@@ -9,6 +9,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@ImportAutoConfiguration(DataSourceAutoConfigure.class)
+@ImportAutoConfiguration({DataSourceAutoConfigure.class, TransactionManagerAutoConfigure.class})
 public @interface EnableDataSource {
 }
