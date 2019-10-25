@@ -113,12 +113,12 @@
     <distributionManagement>
         <repository>
             <id>maven-releases</id>
-            <name>smsf release respoitories</name>
+            <name>release respoitories</name>
             <url>http://10.237.161.211:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <name>smsf snapshots respoitories</name>
+            <name>snapshots respoitories</name>
             <url>http://10.237.161.211:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>

@@ -3,9 +3,12 @@ package com.github.gs618.easy.starter.datasource;
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -83,13 +86,19 @@ public class DataSourceAutoConfigure {
     /**
      * datasource 调度代理
      */
-    @Bean(name = "multipleRoutingDataSource")
+    @Bean
     public DataSource multipleRoutingDataSource() {
         Map<Object, Object> targetDataSources = loadDataSources();
         MultipleRoutingDataSource multipleRoutingDataSource = new MultipleRoutingDataSource();
         multipleRoutingDataSource.setDefaultTargetDataSource(targetDataSources.get(DataSourceProperties.DEFAULT));
         multipleRoutingDataSource.setTargetDataSources(targetDataSources);
         return multipleRoutingDataSource;
+    }
+
+    @ConditionalOnClass(value = {PlatformTransactionManager.class})
+    @Bean
+    public DataSourceTransactionManager dataSourceTransactionManager() {
+        return new DataSourceTransactionManager(multipleRoutingDataSource());
     }
 
     @Bean
