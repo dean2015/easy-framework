@@ -14,6 +14,7 @@
         <module>easy-starter-swagger</module>
         <module>easy-starter-dependencies</module>
         <module>easy-starter-datasource</module>
+        <module>easy-starter-transmission</module>
     </modules>
 
     <licenses>
