@@ -97,7 +97,7 @@ public class DataSourceAutoConfigure {
 
     @ConditionalOnClass(value = {PlatformTransactionManager.class})
     @Bean
-    public DataSourceTransactionManager dataSourceTransactionManager() {
+    public DataSourceTransactionManager transactionManager() {
         return new DataSourceTransactionManager(multipleRoutingDataSource());
     }
 
