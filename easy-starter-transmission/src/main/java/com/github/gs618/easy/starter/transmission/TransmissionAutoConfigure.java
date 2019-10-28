@@ -19,24 +19,20 @@ import java.util.List;
 })
 public class TransmissionAutoConfigure {
 
-    @Autowired
-    private TransmissionProperties transmissionProperties;
-
-    @ConditionalOnClass(TransmissionProperties.class)
     @Bean
-    public KeyValues keyValues() {
-        return new KeyValues(transmissionProperties);
+    public KeyValuesInitRunner keyValuesInitRunner() {
+        return new KeyValuesInitRunner();
     }
 
     @ConditionalOnClass(Feign.class)
     @Bean
     public FeignKeyValueTransmitter feignKeyValueTransmitter() {
-        return new FeignKeyValueTransmitter(keyValues());
+        return new FeignKeyValueTransmitter();
     }
 
     @ConditionalOnClass(RestTemplate.class)
     @Bean
     public RestTemplateKeyValueTransmitter restTemplateKeyValueTransmitter(@Autowired(required = false) List<RestTemplate> restTemplates) {
-        return new RestTemplateKeyValueTransmitter(restTemplates, keyValues());
+        return new RestTemplateKeyValueTransmitter(restTemplates);
     }
 }

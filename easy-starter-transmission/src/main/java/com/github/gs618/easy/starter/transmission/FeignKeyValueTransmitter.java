@@ -10,14 +10,8 @@ import org.springframework.core.annotation.Order;
 @Order
 public class FeignKeyValueTransmitter implements RequestInterceptor {
 
-    private final KeyValues keyValues;
-
-    FeignKeyValueTransmitter(KeyValues keyValues) {
-        this.keyValues = keyValues;
-    }
-
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        keyValues.transmit(requestTemplate::header);
+        KeyValues.transmit(requestTemplate::header);
     }
 }

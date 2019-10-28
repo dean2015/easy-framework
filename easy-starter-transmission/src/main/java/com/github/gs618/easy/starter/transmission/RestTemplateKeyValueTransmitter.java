@@ -18,16 +18,13 @@ import java.util.Objects;
 @Order
 public class RestTemplateKeyValueTransmitter implements ClientHttpRequestInterceptor {
 
-    private final KeyValues keyValues;
-
-    RestTemplateKeyValueTransmitter(List<RestTemplate> restTemplates, KeyValues keyValues) {
+    RestTemplateKeyValueTransmitter(List<RestTemplate> restTemplates) {
         if (Objects.nonNull(restTemplates)) {
             restTemplates.forEach(restTemplate -> {
                 List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
                 interceptors.add(interceptors.size(), RestTemplateKeyValueTransmitter.this);
             });
         }
-        this.keyValues = keyValues;
     }
 
     @Override
@@ -35,7 +32,7 @@ public class RestTemplateKeyValueTransmitter implements ClientHttpRequestInterce
     public ClientHttpResponse intercept(
             @NonNull HttpRequest httpRequest, @NonNull byte[] bytes,
             @NonNull ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
-        keyValues.transmit(httpRequest.getHeaders()::add);
+        KeyValues.transmit(httpRequest.getHeaders()::add);
         return clientHttpRequestExecution.execute(httpRequest, bytes);
     }
 }

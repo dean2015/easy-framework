@@ -2,20 +2,31 @@ package com.github.gs618.easy.starter.transmission;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author gaosong
  */
 @Slf4j
 public class KeyValues {
 
-    private final TransmissionProperties properties;
+    private final static Map<String, String> KEY_VALUES_MAP = new HashMap<>(10);
 
-    KeyValues(TransmissionProperties properties) {
-        this.properties = properties;
+    public static void put(String key, String value) {
+        KEY_VALUES_MAP.put(key, value);
     }
 
-    void transmit(KeyValueSetter keyValueSetter) {
-        properties.getTransmission().forEach(keyValueSetter::set);
+    public static void putAll(Map<String, String> map) {
+        KEY_VALUES_MAP.putAll(map);
+    }
+
+    public static void remove(String key) {
+        KEY_VALUES_MAP.remove(key);
+    }
+
+    static void transmit(KeyValueSetter keyValueSetter) {
+        KEY_VALUES_MAP.forEach(keyValueSetter::set);
     }
 
     /**
@@ -31,16 +42,4 @@ public class KeyValues {
         void set(String key, String value);
     }
 
-    /**
-     * Tracing信息获取器
-     */
-    public interface TracingGetter {
-        /**
-         * 获取tracing属性
-         *
-         * @param key key
-         * @return tracing value
-         */
-        String get(String key);
-    }
 }
