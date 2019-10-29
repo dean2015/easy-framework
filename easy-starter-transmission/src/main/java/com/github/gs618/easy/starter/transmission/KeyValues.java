@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author gaosong
@@ -11,22 +12,45 @@ import java.util.Map;
 @Slf4j
 public class KeyValues {
 
-    private final static Map<String, String> KEY_VALUES_MAP = new HashMap<>(10);
+    private final static ThreadLocal<Map<String, String>> KEY_VALUES_MAP = new InheritableThreadLocal<>();
 
-    public static void put(String key, String value) {
-        KEY_VALUES_MAP.put(key, value);
+    private final static int MAP_SIZE = 10;
+
+    static {
+        KEY_VALUES_MAP.set(new HashMap<>(MAP_SIZE));
+    }
+
+    private static synchronized Map<String, String> map() {
+        Map<String, String> map = KEY_VALUES_MAP.get();
+        if (Objects.isNull(map)) {
+            map = new HashMap<>(MAP_SIZE);
+            KEY_VALUES_MAP.set(map);
+        }
+        return map;
+    }
+
+    public static String put(String key, String value) {
+        return map().put(key, value);
     }
 
     public static void putAll(Map<String, String> map) {
-        KEY_VALUES_MAP.putAll(map);
+        map().putAll(map);
     }
 
-    public static void remove(String key) {
-        KEY_VALUES_MAP.remove(key);
+    public static String get(String key) {
+        return map().get(key);
+    }
+
+    public static String remove(String key) {
+        return map().remove(key);
+    }
+
+    public static void clear() {
+        KEY_VALUES_MAP.remove();
     }
 
     static void transmit(KeyValueSetter keyValueSetter) {
-        KEY_VALUES_MAP.forEach(keyValueSetter::set);
+        map().forEach(keyValueSetter::set);
     }
 
     /**
