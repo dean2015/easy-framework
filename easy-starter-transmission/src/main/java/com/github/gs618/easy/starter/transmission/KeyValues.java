@@ -1,5 +1,6 @@
 package com.github.gs618.easy.starter.transmission;
 
+import com.alibaba.ttl.TransmittableThreadLocal;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.Objects;
 @Slf4j
 public class KeyValues {
 
-    private final static ThreadLocal<Map<String, String>> KEY_VALUES_MAP = new InheritableThreadLocal<>();
+    private final static TransmittableThreadLocal<Map<String, String>> KEY_VALUES_MAP = new TransmittableThreadLocal<>();
 
     private final static int MAP_SIZE = 10;
 
