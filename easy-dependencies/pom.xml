@@ -6,9 +6,11 @@
     <groupId>com.github.gs618</groupId>
     <version>1.0.0</version>
     <artifactId>easy-dependencies</artifactId>
+    <packaging>pom</packaging>
     <properties>
         <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
-        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>    </properties>
+        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <!-- Spring boot -->
