@@ -42,10 +42,6 @@ public class KeyValues {
         return map().get(key);
     }
 
-    public static String remove(String key) {
-        return map().remove(key);
-    }
-
     public static void clear() {
         KEY_VALUES_MAP.remove();
     }
