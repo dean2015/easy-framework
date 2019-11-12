@@ -25,6 +25,8 @@ public class DataSourceOnMethodAspect {
         String dataSourceKey = dataSource.value();
         if (StringUtils.isNotEmpty(dataSourceKey)) {
             DataSourceHolder.set(dataSourceKey);
+        } else {
+            DataSourceHolder.set(null);
         }
     }
 
