@@ -18,7 +18,7 @@ class DataSourceHolder {
 
     private static final ThreadLocal<Stack<String>> CURRENT_DATASOURCE_KEY = new InheritableThreadLocal<>();
 
-    static void set(String key) {
+    public static void set(String key) {
         Stack<String> stack = CURRENT_DATASOURCE_KEY.get();
         if (Objects.isNull(CURRENT_DATASOURCE_KEY.get())) {
             stack = new Stack<>();
@@ -30,9 +30,13 @@ class DataSourceHolder {
     /**
      * 如果为null 默认指向DEFAULT
      */
-    static String get() {
+    public static String get() {
+        Stack<String> stack = CURRENT_DATASOURCE_KEY.get();
+        if(Objects.isNull(stack)){
+            return DataSourceProperties.DEFAULT;
+        }
         try {
-            String key = CURRENT_DATASOURCE_KEY.get().pop();
+            String key = stack.peek();
             return StringUtils.isBlank(key)
                     ? DataSourceProperties.DEFAULT
                     : key;
@@ -44,9 +48,12 @@ class DataSourceHolder {
     /**
      *
      */
-    static void remove() {
-        if (CURRENT_DATASOURCE_KEY.get().isEmpty()) {
+    public static void remove() {
+        Stack<String> stack = CURRENT_DATASOURCE_KEY.get();
+        if (stack.isEmpty()) {
             CURRENT_DATASOURCE_KEY.remove();
+        } else {
+            stack.pop();
         }
     }
 }
